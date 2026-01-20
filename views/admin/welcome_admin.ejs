@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Admin Welcome</title>
+
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body{
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(135deg, #141e30, #243b55);
+            color: #fff;
+        }
+
+        .welcome-box{
+            text-align: center;
+            background: rgba(255,255,255,0.1);
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            width: 400px;
+        }
+
+        .welcome-box h1{
+            font-size: 28px;
+            margin-bottom: 10px;
+        }
+
+        .welcome-box p{
+            font-size: 15px;
+            margin-bottom: 30px;
+            color: #ddd;
+        }
+
+        .welcome-box img{
+            width: 90px;
+            margin-bottom: 20px;
+        }
+
+        .btn{
+            display: inline-block;
+            padding: 12px 25px;
+            background: #00c6ff;
+            color: #000;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 30px;
+            transition: 0.3s;
+        }
+
+        .btn:hover{
+            background: #00a2d4;
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="welcome-box">
+
+        <!-- Optional Admin Icon -->
+        <img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" alt="Admin">
+
+        <h1>Welcome Admin</h1>
+        <p>
+            This is the admin control panel.  
+            Please login to manage dashboard, users & data.
+        </p>
+
+        <!-- Login Page Link -->
+        <a href="/admin/login" class="btn">
+            Go to Admin Login
+        </a>
+
+    </div>
+
+</body>
+</html>

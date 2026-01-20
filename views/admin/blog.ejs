@@ -1,0 +1,147 @@
+<%- include('navbar.ejs') %>
+
+<style>
+:root {
+    --travel-teal:#2A9D8F;
+    --travel-coral:#E76F51;
+    --travel-peach:#F4A261;
+    --travel-dark:#264653;
+    --travel-light:#E8F4F3;
+    --travel-bg:#F8F9FA;
+}
+
+.travel-header{
+    background:linear-gradient(135deg,var(--travel-teal),var(--travel-dark));
+    color:#fff;padding:2rem;border-radius:15px;margin-bottom:2rem
+}
+
+.travel-card{
+    border-radius:15px;
+    box-shadow:0 10px 30px rgba(0,0,0,.1);
+    border-top:4px solid var(--travel-teal)
+}
+
+.blog-image{
+    width:100px;height:60px;object-fit:cover;border-radius:8px;
+    border:2px solid #e9ecef
+}
+
+.no-image-placeholder{
+    width:100px;height:60px;border:2px dashed var(--travel-teal);
+    display:flex;align-items:center;justify-content:center;
+    border-radius:8px;color:var(--travel-teal)
+}
+</style>
+
+<div class="container mt-4">
+
+<!-- HEADER -->
+<div class="travel-header">
+    <h2>✍️ Add New Travel Blog</h2>
+    <p class="mb-0">Create & manage travel blogs</p>
+</div>
+
+<!-- ADD BLOG FORM -->
+<div class="card travel-card mb-5">
+<div class="card-body">
+<form method="POST" action="/admin/add_blog" enctype="multipart/form-data">
+
+<div class="mb-3">
+    <label class="form-label">Blog Title</label>
+    <input type="text" name="blog_title" class="form-control" required>
+</div>
+
+<div class="mb-3">
+    <label class="form-label">Short Description</label>
+    <textarea name="blog_short_description" class="form-control" rows="3"></textarea>
+</div>
+
+<div class="mb-3">
+    <label class="form-label">Full Description</label>
+    <textarea name="blog_full_description" class="form-control" rows="6"></textarea>
+</div>
+
+<div class="mb-3">
+    <label class="form-label">Blog Image</label>
+    <input type="file" name="blog_image" class="form-control">
+</div>
+
+<div class="mb-4">
+    <label class="form-label">Publish Date</label>
+    <input type="date" name="blog_publish_date" class="form-control"
+           value="<%= new Date().toISOString().split('T')[0] %>">
+</div>
+
+<button class="btn btn-success">Save Blog</button>
+<a href="/admin/blog" class="btn btn-secondary ms-2">Back</a>
+
+</form>
+</div>
+</div>
+
+<!-- BLOG LIST -->
+<div class="card travel-card">
+<div class="card-body">
+
+<h4 class="mb-3">🗂 Blog List</h4>
+
+<% if (blogs && blogs.length > 0) { %>
+<table class="table table-bordered align-middle">
+<thead class="table-dark">
+<tr>
+<th>#</th>
+<th>Image</th>
+<th>Title</th>
+<th>Date</th>
+<th>Action</th>
+</tr>
+</thead>
+
+<tbody>
+<% blogs.forEach((blog,index)=>{ %>
+<tr>
+<td><%= index+1 %></td>
+
+<td>
+<% if(blog.blog_image){ %>
+<img src="/assets/images/<%= blog.blog_image %>"
+     class="blog-image"
+     alt="<%= blog.blog_title %>">
+<% }else{ %>
+<div class="no-image-placeholder">No Img</div>
+<% } %>
+</td>
+
+<td>
+<b><%= blog.blog_title %></b><br>
+<small><%= blog.blog_short_description || '' %></small>
+</td>
+
+<td>
+<%= new Date(blog.blog_publish_date).toLocaleDateString() %>
+</td>
+
+<td>
+<a href="/edit-blog/<%= blog.blog_id %>"
+   class="btn btn-sm btn-primary">
+   Edit
+</a>
+<a href="/admin/delete_blog/<%= blog.blog_id %>"
+   class="btn btn-sm btn-danger"
+   onclick="return confirm('Delete this blog?')">Delete</a>
+</td>
+</tr>
+<% }) %>
+</tbody>
+</table>
+
+<% } else { %>
+<p>No blogs found</p>
+<% } %>
+
+</div>
+</div>
+
+</div>
+
+<%- include('footer.ejs') %>

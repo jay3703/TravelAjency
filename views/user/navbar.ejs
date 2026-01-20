@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= typeof title !== 'undefined' ? title : 'Travel Agency' %></title>
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/packages.css">
+</head>
+<body>
+
+ <!-- Navigation -->
+<nav class="navbar navbar-expand-lg navbar-dark"
+     style="position: fixed; top: 0; left: 0; width: 100%; z-index: 1040; background: linear-gradient(90deg, #1e3c72 0%, #2a5298 100%); backdrop-filter: blur(2px); box-shadow: 0 2px 12px rgba(10,32,94,0.10);">
+    <div class="container">
+        <a class="navbar-brand fw-bold" href="/">
+            <i class="bi bi-airplane"></i> <span style="color: #ffcc29;">Travel Agency</span>
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav ms-auto">
+        <li class="nav-item">
+            <a class="nav-link" href="/user" style="color: #ffe564;">Home</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="/user/packages" style="color: #ffe564;">Packages</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="/user/blogs" style="color: #ffe564;">Blogs</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="/user/categories" style="color: #ffe564;">Categories</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="/user/gallery" style="color: #ffe564;">Gallery</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="/user/about" style="color: #ffe564;">About</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="/user/contact" style="color: #ffe564;">Contact</a>
+        </li>
+        
+    </ul>
+</div>
+
+</nav>

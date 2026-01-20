@@ -1,0 +1,138 @@
+
+<%- include("navbar.ejs") %>
+
+<!-- ================= HERO SECTION ================= -->
+ <!-- Hero Banner -->
+<section class="hero-banner" style="position: relative; padding-top: 80px; min-height: 600px;">
+    <!-- Hero Banner Background Image -->
+    <img src="./assets/images/heroimg.jpg" alt="Travel Hero" class="hero-bg-img"
+        style="position:absolute;top:0;left:0;width:100%;height:600px;object-fit:cover;z-index:0;">
+    <div class="hero-overlay"
+        style="position:absolute;top:0;left:0;width:100%;height:600px;background:rgba(17,40,101,0.5);z-index:1;">
+    </div>
+    <div class="container hero-content" style="position: relative; z-index: 2; min-height: 500px;">
+        <div class="row align-items-center" style="min-height: 540px;">
+            <div class="col-lg-6 text-white" style="bottom:100px;">
+                <h1 class="display-4 fw-bold mb-4 ">Discover Amazing Destinations</h1>
+                <p class="lead mb-4">Plan your perfect getaway with our exclusive travel packages. Experience the world like never before.</p>
+                <a href="/user/packages" class="btn btn-light btn-lg me-3">Explore Packages</a>
+                <a href="/user/contact" class="btn btn-outline-light btn-lg">Contact Us</a>
+            </div>
+            <div class="col-lg-6 d-none d-lg-block">
+                <img src="./assets/images/heroimg.jpg" alt="Travel Hero Side" style="width:100%;height:500px;object-fit:cover;border-radius:18px;box-shadow:0 2px 20px rgba(10,32,94,0.13);">
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- Popular Packages -->
+<section class="py-5 packages-section"
+  style="background:linear-gradient(135deg,#f5f9ff,#eef3f8);">
+
+  <div class="container">
+    <div class="text-center mb-5">
+      <h2 class="fw-bold display-6">Popular Packages</h2>
+      <p class="text-muted fs-6">
+        Choose from our handpicked travel experiences
+      </p>
+    </div>
+
+    <div class="row g-4 justify-content-center">
+
+      <!-- Goa -->
+      <div class="col-12 col-md-6 col-lg-4 d-flex">
+        <div class="card shadow-lg border-0 w-100 package-card-modern"
+          style="border-radius:22px;overflow:hidden;transition:0.4s;">
+          
+          <div style="overflow:hidden;">
+            <img src="./assets/images/gao1.jpg"
+              class="card-img-top"
+              style="height:260px;object-fit:cover;transition:0.6s;">
+          </div>
+
+          <div class="card-body d-flex flex-column">
+            <h3 class="h5 fw-bold mb-2">Goa Beach Paradise</h3>
+            <p class="text-muted flex-grow-1">
+              Relax at pristine beaches and enjoy vibrant nightlife.
+            </p>
+            <a href="/user/gao"
+              class="btn btn-outline-primary mt-auto rounded-pill fw-semibold">
+              View Details
+            </a>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Kerala -->
+      <div class="col-12 col-md-6 col-lg-4 d-flex">
+        <div class="card shadow-lg border-0 w-100 package-card-modern"
+          style="border-radius:22px;overflow:hidden;transition:0.4s;">
+          
+          <div style="overflow:hidden;">
+            <img src="./assets/images/kerala1.jpg"
+              class="card-img-top"
+              style="height:260px;object-fit:cover;transition:0.6s;">
+          </div>
+
+          <div class="card-body d-flex flex-column">
+            <h3 class="h5 fw-bold mb-2">Kerala Backwaters</h3>
+            <p class="text-muted flex-grow-1">
+              Cruise backwaters and explore lush greenery.
+            </p>
+            <a href="/user/kerala"
+              class="btn btn-outline-primary mt-auto rounded-pill fw-semibold">
+              View Details
+            </a>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Dubai -->
+      <div class="col-12 col-md-6 col-lg-4 d-flex">
+        <div class="card shadow-lg border-0 w-100 package-card-modern"
+          style="border-radius:22px;overflow:hidden;transition:0.4s;">
+          
+          <div style="overflow:hidden;">
+            <img src="./assets/images/dubai1.jpg"
+              class="card-img-top"
+              style="height:260px;object-fit:cover;transition:0.6s;">
+          </div>
+
+          <div class="card-body d-flex flex-column">
+            <h3 class="h5 fw-bold mb-2">Dubai Luxury Tour</h3>
+            <p class="text-muted flex-grow-1">
+              Experience luxury, desert safari & shopping.
+            </p>
+            <a href="/user/dubai"
+              class="btn btn-outline-primary mt-auto rounded-pill fw-semibold">
+              View Details
+            </a>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+
+    <div class="text-center mt-5">
+      <a href="/user/packages"
+        class="btn btn-outline-primary btn-lg rounded-pill px-5">
+        View All Packages
+      </a>
+    </div>
+
+  </div>
+</section>
+
+
+
+
+  
+  
+
+    
+
+   <%- include('footer.ejs') %>

@@ -1,0 +1,43 @@
+<%- include("navbar.ejs") %>
+
+<div class="container py-5 mt-5">
+    <!-- Page Header -->
+    <div class="text-center mb-5">
+        <h1 class="fw-bold">Travel Categories</h1>
+        <p class="text-muted">Explore destinations by category</p>
+    </div>
+
+    <div class="row g-4">
+        <% if (categories && categories.length > 0) { %>
+            <% categories.forEach(category => { %>
+                <div class="col-md-6 col-lg-4 d-flex">
+                    <div class="card category-card shadow-lg border-0 w-100" style="border-radius: 22px;">
+                        <div class="position-relative">
+                            <img src="/assets/images/<%= category.image %>" 
+                                 class="card-img-top" 
+                                 alt="<%= category.category_name %>" 
+                                 style="height: 220px; object-fit: cover; border-top-left-radius: 22px; border-top-right-radius: 22px;">
+                            <span class="badge position-absolute top-0 start-0 m-3 px-3 py-2 text-white" 
+                                  style="background:linear-gradient(90deg,#ffcc29,#2a5298);font-size:1rem;">
+                                <%= category.category_name %>
+                            </span>
+                        </div>
+                        <div class="card-body d-flex flex-column text-center" style="border-radius:0 0 22px 22px;background: #fff;">
+                            <h4 class="card-title fw-bold mb-2"><%= category.category_name %></h4>
+                            <p class="text-muted mb-3"><%= category.package_count || 0 %> Packages Available</p>
+                            <a href="/user/packages?category=<%= (category.category_name || '').toLowerCase() %>" 
+                               class="btn btn-gradient px-4 py-2 mt-auto" 
+                               style="background:linear-gradient(90deg,#1e3c72,#2a5298);color:#fff;font-weight:600;border-radius:1.5em;">
+                                Explore Packages
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            <% }) %>
+        <% } else { %>
+            <p class="text-center text-muted">No categories found.</p>
+        <% } %>
+    </div>
+</div>
+
+<%- include("footer.ejs") %>

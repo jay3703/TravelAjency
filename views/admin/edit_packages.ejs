@@ -1,0 +1,129 @@
+<h1>Edit Travel Package</h1>
+
+<%- include("navbar.ejs") %>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Admin | Edit Travel Package</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="bg-light">
+
+<div class="container mt-5 mb-5">
+    <div class="card shadow">
+        <div class="card-header bg-warning text-dark">
+            <h4 class="mb-0">Edit Travel Package</h4>
+        </div>
+
+        <div class="card-body">
+            <form action="/admin/packages/update/<%= package.package_id %>" 
+                  method="POST" 
+                  enctype="multipart/form-data">
+
+                <!-- Package Title -->
+                <div class="mb-3">
+                    <label class="form-label">Package Title</label>
+                    <input type="text" name="package_title"
+                           class="form-control"
+                           value="<%= package.package_title %>" required>
+                </div>
+
+                <!-- Short Description -->
+                <div class="mb-3">
+                    <label class="form-label">Short Description</label>
+                    <textarea name="short_description"
+                              class="form-control"
+                              rows="2" required><%= package.short_description %></textarea>
+                </div>
+
+                <!-- Day & Night -->
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        <label class="form-label">Total Days</label>
+                        <input type="number" name="total_days"
+                               class="form-control"
+                               value="<%= package.total_days %>" min="1" required>
+                    </div>
+
+                    <div class="col-md-6 mb-3">
+                        <label class="form-label">Total Nights</label>
+                        <input type="number" name="total_nights"
+                               class="form-control"
+                               value="<%= package.total_nights %>" min="0" required>
+                    </div>
+                </div>
+
+                <!-- Location -->
+                <div class="mb-3">
+                    <label class="form-label">Location</label>
+                    <input type="text" name="location"
+                           class="form-control"
+                           value="<%= package.location %>" required>
+                </div>
+
+                <!-- Old Price -->
+                <div class="mb-3">
+                    <label class="form-label">Old Price (₹)</label>
+                    <input type="number" name="dublicate_price"
+                           class="form-control"
+                           value="<%= package.dublicate_price %>" required>
+                </div>
+
+                <!-- Price -->
+                <div class="mb-3">
+                    <label class="form-label">Package Price (₹)</label>
+                    <input type="number" name="price"
+                           class="form-control"
+                           value="<%= package.price %>" required>
+                </div>
+
+                <!-- Existing Image -->
+                <div class="mb-3">
+                    <label class="form-label">Current Image</label><br>
+                    <img src="/assets/images/<%= package.package_image %>"
+                         style="width:150px;border-radius:8px;">
+                    <input type="hidden" name="old_image"
+                           value="<%= package.package_image %>">
+                </div>
+
+                <!-- New Image -->
+                <div class="mb-3">
+                    <label class="form-label">Change Image (optional)</label>
+                    <input type="file" name="package_image"
+                           class="form-control">
+                </div>
+
+                <!-- Status -->
+                <div class="form-check form-switch mb-4">
+                    <input class="form-check-input"
+                           type="checkbox"
+                           name="status"
+                           value="1"
+                           <%= package.status == 1 ? "checked" : "" %>>
+                    <label class="form-check-label">Active Package</label>
+                </div>
+
+                <!-- Buttons -->
+                <div class="d-flex gap-2">
+                    <button type="submit" class="btn btn-success">
+                        Update Package
+                    </button>
+                    <a href="/admin/packages" class="btn btn-secondary">
+                        Cancel
+                    </a>
+                </div>
+
+            </form>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
+
+<%- include("footer.ejs") %>

@@ -1,0 +1,292 @@
+<%- include('navbar.ejs') %>
+
+<!-- Hero Section -->
+<section class="hero-section position-relative" style="padding-top: 80px; min-height: 400px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">
+    <div class="container">
+        <div class="row align-items-center" style="min-height: 320px;">
+            <div class="col-12 text-center text-white">
+                <h1 class="display-4 fw-bold mb-4">Get In Touch</h1>
+                <p class="lead mb-0">We're here to help you plan your perfect journey</p>
+            </div>
+        </div>
+    </div>
+</section>
+<% if (typeof success !== 'undefined' && success) { %>
+<div class="alert alert-success alert-dismissible fade show" role="alert">
+    ✅ Thank you for contacting us! We'll get back to you soon.
+    <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+</div>
+<% } %>
+
+
+
+    <div class="row g-5">
+        <!-- Contact Form -->
+        <div class="col-lg-8">
+            <div class="card shadow-lg border-0" style="border-radius: 20px;">
+                <div class="card-body p-5">
+                    <h3 class="fw-bold mb-4" style="color: #2c3e50;">Send us a Message</h3>
+<form action="/user/contact" method="POST">
+                        <div class="row g-3">
+                            <div class="col-md-6">
+                                <label for="firstName" class="form-label fw-semibold">First Name</label>
+                                <input type="text" class="form-control form-control-lg" id="firstName" name="firstName" required style="border-radius: 12px; border: 2px solid #e9ecef;">
+                            </div>
+                            <div class="col-md-6">
+                                <label for="lastName" class="form-label fw-semibold">Last Name</label>
+                                <input type="text" class="form-control form-control-lg" id="lastName" name="lastName" required style="border-radius: 12px; border: 2px solid #e9ecef;">
+                            </div>
+                            <div class="col-md-6">
+                                <label for="email" class="form-label fw-semibold">Email Address</label>
+                                <input type="email" class="form-control form-control-lg" id="email" name="email" required style="border-radius: 12px; border: 2px solid #e9ecef;">
+                            </div>
+                            <div class="col-md-6">
+                                <label for="phone" class="form-label fw-semibold">Phone Number</label>
+                                <input type="tel" class="form-control form-control-lg" id="phone" name="phone" required style="border-radius: 12px; border: 2px solid #e9ecef;">
+                            </div>
+                            <div class="col-12">
+                                <label for="destination" class="form-label fw-semibold">Preferred Destination</label>
+                                <select class="form-select form-select-lg" id="destination" name="destination" style="border-radius: 12px; border: 2px solid #e9ecef;">
+                                    <option value="">Select a destination</option>
+                                    <option value="goa">Goa</option>
+                                    <option value="kerala">Kerala</option>
+                                    <option value="kashmir">Kashmir</option>
+                                    <option value="manali">Manali</option>
+                                    <option value="rajasthan">Rajasthan</option>
+                                    <option value="dubai">Dubai</option>
+                                    <option value="thailand">Thailand</option>
+                                    <option value="maldives">Maldives</option>
+                                    <option value="bali">Bali</option>
+                                    <option value="paris">Paris</option>
+                                    <option value="other">Other</option>
+                                </select>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="travelDate" class="form-label fw-semibold">Preferred Travel Date</label>
+                                <input type="date" class="form-control form-control-lg" id="travelDate" name="travelDate" style="border-radius: 12px; border: 2px solid #e9ecef;">
+                            </div>
+                            <div class="col-md-6">
+                                <label for="travelers" class="form-label fw-semibold">Number of Travelers</label>
+                                <select class="form-select form-select-lg" id="travelers" name="travelers" style="border-radius: 12px; border: 2px solid #e9ecef;">
+                                    <option value="1">1 Person</option>
+                                    <option value="2">2 People</option>
+                                    <option value="3-4">3-4 People</option>
+                                    <option value="5-8">5-8 People</option>
+                                    <option value="9+">9+ People</option>
+                                </select>
+                            </div>
+                            <div class="col-12">
+                                <label for="budget" class="form-label fw-semibold">Budget Range</label>
+                                <select class="form-select form-select-lg" id="budget" name="budget" style="border-radius: 12px; border: 2px solid #e9ecef;">
+                                    <option value="">Select budget range</option>
+                                    <option value="under-20k">Under ₹20,000</option>
+                                    <option value="20k-50k">₹20,000 - ₹50,000</option>
+                                    <option value="50k-100k">₹50,000 - ₹1,00,000</option>
+                                    <option value="100k-200k">₹1,00,000 - ₹2,00,000</option>
+                                    <option value="above-200k">Above ₹2,00,000</option>
+                                </select>
+                            </div>
+                            <div class="col-12">
+                                <label for="message" class="form-label fw-semibold">Message</label>
+                                <textarea class="form-control" id="message" name="message" rows="5" placeholder="Tell us about your travel preferences, special requirements, or any questions you have..." style="border-radius: 12px; border: 2px solid #e9ecef;"></textarea>
+                            </div>
+                           <div class="col-12">
+    <button type="submit" class="btn btn-lg px-5 py-3"
+        style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+               color: white; border: none; border-radius: 12px; font-weight: 600;">
+        <i class="bi bi-send me-2"></i>Send Message
+    </button>
+</div>
+
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <!-- Contact Information -->
+        <div class="col-lg-4">
+            <div class="card shadow-lg border-0 mb-4" style="border-radius: 20px;">
+                <div class="card-body p-4">
+                    <h4 class="fw-bold mb-4" style="color: #2c3e50;">Contact Information</h4>
+                    <div class="d-flex align-items-center mb-3">
+                        <div class="me-3">
+                            <i class="bi bi-geo-alt-fill text-primary" style="font-size: 1.5rem;"></i>
+                        </div>
+                        <div>
+                            <h6 class="fw-bold mb-1">Address</h6>
+                            <p class="text-muted mb-0">A2Z IT HUB PVT. LTD., Balikashram Rd,Bagade Mala, <br>Ahilyanagar, Maharashtra 414003</p>
+                        </div>
+                    </div>
+                    
+                    <div class="d-flex align-items-center mb-3">
+                        <div class="me-3">
+                            <i class="bi bi-telephone-fill text-success" style="font-size: 1.5rem;"></i>
+                        </div>
+                        <div>
+                            <h6 class="fw-bold mb-1">Phone</h6>
+                            <p class="text-muted mb-0">+91 8262813633</p>
+                            <p class="text-muted mb-0">+91 9011144920</p>
+                        </div>
+                    </div>
+                    <div class="d-flex align-items-center mb-3">
+                        <div class="me-3">
+                            <i class="bi bi-envelope-fill text-warning" style="font-size: 1.5rem;"></i>
+                        </div>
+                        <div>
+                            <h6 class="fw-bold mb-1">Email</h6>
+                            <p class="text-muted mb-0">vanavejay123@gmail.com<br>info@a2zithub.org</p>
+                        </div>
+                    </div>
+                    <div class="d-flex align-items-center mb-3">
+                        <div class="me-3">
+                            <i class="bi bi-whatsapp text-success" style="font-size: 1.5rem;"></i>
+                        </div>
+                        <div>
+                            <h6 class="fw-bold mb-1">WhatsApp</h6>
+                            <p class="text-muted mb-0">+91 8262813633</p>
+                            <a href="https://wa.me/918262813633" class="btn btn-success btn-sm mt-2" target="_blank" style="border-radius: 8px;">
+                                <i class="bi bi-whatsapp me-1"></i>Chat Now
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Business Hours -->
+            <div class="card shadow-lg border-0 mb-4" style="border-radius: 20px;">
+                <div class="card-body p-4">
+                    <h4 class="fw-bold mb-4" style="color: #2c3e50;">Business Hours</h4>
+                    <div class="row g-2">
+                        <div class="col-6">
+                            <p class="mb-1 fw-semibold">Monday - Friday</p>
+                            <p class="text-muted small">9:00 AM - 7:00 PM</p>
+                        </div>
+                        <div class="col-6">
+                            <p class="mb-1 fw-semibold">Saturday</p>
+                            <p class="text-muted small">10:00 AM - 6:00 PM</p>
+                        </div>
+                        <div class="col-6">
+                            <p class="mb-1 fw-semibold">Sunday</p>
+                            <p class="text-muted small">11:00 AM - 4:00 PM</p>
+                        </div>
+                        <div class="col-6">
+                            <p class="mb-1 fw-semibold">Holidays</p>
+                            <p class="text-muted small">By Appointment</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Social Media -->
+            <div class="card shadow-lg border-0" style="border-radius: 20px;">
+                <div class="card-body p-4 text-center">
+                    <h4 class="fw-bold mb-4" style="color: #2c3e50;">Follow Us</h4>
+                    <div class="d-flex justify-content-center gap-3">
+                        <a href="https://facebook.com/a2ztravelagency" class="btn btn-outline-primary rounded-circle" target="_blank" style="width: 50px; height: 50px; display: flex; align-items: center; justify-content: center;">
+                            <i class="bi bi-facebook" style="font-size: 1.2rem;"></i>
+                        </a>
+                        <a href="https://twitter.com/a2ztravelagency" class="btn btn-outline-info rounded-circle" target="_blank" style="width: 50px; height: 50px; display: flex; align-items: center; justify-content: center;">
+                            <i class="bi bi-twitter" style="font-size: 1.2rem;"></i>
+                        </a>
+                        <a href="https://instagram.com/a2ztravelagency" class="btn btn-outline-danger rounded-circle" target="_blank" style="width: 50px; height: 50px; display: flex; align-items: center; justify-content: center;">
+                            <i class="bi bi-instagram" style="font-size: 1.2rem;"></i>
+                        </a>
+                        <a href="https://youtube.com/@a2ztravelagency" class="btn btn-outline-danger rounded-circle" target="_blank" style="width: 50px; height: 50px; display: flex; align-items: center; justify-content: center;">
+                            <i class="bi bi-youtube" style="font-size: 1.2rem;"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Google Map -->
+    <div class="row mt-5">
+        <div class="col-12">
+            <div class="card shadow-lg border-0" style="border-radius: 20px;">
+                <div class="card-body p-0">
+                    <div class="ratio ratio-21x9">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2871.7193111930483!2d74.72775317373734!3d19.10537375105264!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bdcb17ca9d749e5%3A0x516744f9b2f35ec9!2sA2Z%20IT%20HUB%20PVT.%20LTD.!5e1!3m2!1sen!2sin!4v1768221676998!5m2!1sen!2sin" 
+                                style="border:0; border-radius: 20px;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- FAQ Section -->
+    <div class="row mt-5">
+        <div class="col-12">
+            <div class="card shadow-lg border-0" style="border-radius: 20px;">
+                <div class="card-body p-5">
+                    <h3 class="fw-bold text-center mb-5" style="color: #2c3e50;">Frequently Asked Questions</h3>
+                    <div class="accordion" id="faqAccordion">
+                        <div class="accordion-item border-0 mb-3" style="border-radius: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button fw-semibold" type="button" data-bs-toggle="collapse" data-bs-target="#faq1" style="border-radius: 12px;">
+                                    How far in advance should I book my trip?
+                                </button>
+                            </h2>
+                            <div id="faq1" class="accordion-collapse collapse show" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    We recommend booking at least 2-3 months in advance for domestic trips and 3-6 months for international destinations to get the best deals and availability.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item border-0 mb-3" style="border-radius: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed fw-semibold" type="button" data-bs-toggle="collapse" data-bs-target="#faq2" style="border-radius: 12px;">
+                                    What is included in your travel packages?
+                                </button>
+                            </h2>
+                            <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    Our packages typically include accommodation, transportation, meals (as specified), sightseeing tours, and a dedicated travel coordinator. Specific inclusions vary by package.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item border-0 mb-3" style="border-radius: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed fw-semibold" type="button" data-bs-toggle="collapse" data-bs-target="#faq3" style="border-radius: 12px;">
+                                    Do you offer customized travel packages?
+                                </button>
+                            </h2>
+                            <div id="faq3" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    Yes! We specialize in creating personalized travel experiences based on your preferences, budget, and requirements. Contact us to discuss your custom package.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item border-0" style="border-radius: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed fw-semibold" type="button" data-bs-toggle="collapse" data-bs-target="#faq4" style="border-radius: 12px;">
+                                    What is your cancellation policy?
+                                </button>
+                            </h2>
+                            <div id="faq4" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    Cancellation policies vary by package and destination. Generally, we offer flexible cancellation up to 30 days before travel with minimal charges. Please check specific terms during booking.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script>
+    setTimeout(() => {
+        let alert = document.querySelector('.alert');
+        if (alert) {
+            alert.classList.remove('show');
+            alert.classList.add('fade');
+        }
+    }, 3000);
+</script>
+
+
+<%- include('footer.ejs') %>
