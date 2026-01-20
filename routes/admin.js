@@ -29,18 +29,6 @@ router.post("/login_process",async function(req,res){
     }
 });
 
-function verifyAdmin(req, res, next) {
-    if (req.session && req.session.admin_id) {
-        next();
-    } else {
-        res.redirect("/admin/login");
-    }
-}
-
-
-router.use(verifyAdmin);
-
-
 router.get("/", (req, res) =>{
     res.render("admin/welcome_admin.ejs");
 });
