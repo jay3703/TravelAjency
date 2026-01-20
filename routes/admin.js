@@ -2,21 +2,6 @@ var express = require("express");
 var exe = require("../conn");
 var router = express.Router();
 
-
-function checkLogin(req,res,next)
-{
-     if(req.session.id == undefined)
-    { 
-        res.redirect("/admin")
-    }
-    else
-    {
-        next()
-    };
-};
-
-
-
 router.get("/welcome_admin", (req, res) =>{
     res.render("admin/welcome_admin.ejs");
 });
@@ -43,6 +28,17 @@ router.post("/login_process",async function(req,res){
         res.render("/admin", { error: "Invalid Mobile or Password" });
     }
 });
+
+function verifyAdmin(req, res, next) {
+    if (req.session && req.session.admin_id) {
+        next();
+    } else {
+        res.redirect("/admin/login");
+    }
+}
+
+
+router.use(verifyAdmin);
 
 
 router.get("/", (req, res) =>{
