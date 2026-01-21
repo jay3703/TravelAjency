@@ -30,7 +30,7 @@ router.post("/login_process",async function(req,res){
     var sql = `SELECT * FROM admin WHERE admin_email = ? AND admin_password = ?`;
     var result = await exe(sql,[data.admin_email, data.admin_password]);
     if(result.length > 0){
-        req.session.id = result[0].admin_id;
+        req.session.admin = true;
         req.session.success =  "Login Successful! 🎉";
         res.redirect("/admin/home");
     }else{
