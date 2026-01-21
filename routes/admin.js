@@ -2,6 +2,15 @@ var express = require("express");
 var exe = require("../conn");
 var router = express.Router();
 
+function checklogin(req,res,next){
+    if(req.session.admin){
+        next();
+    }else{
+        res.redirect("/admin/welcome_admin")
+    }   
+}
+
+
 router.get("/welcome_admin", (req, res) =>{
     res.render("admin/welcome_admin.ejs");
 });
@@ -29,25 +38,25 @@ router.post("/login_process",async function(req,res){
     }
 });
 
-router.get("/", (req, res) =>{
+router.get("/", checklogin, (req, res) =>{
     res.render("admin/welcome_admin.ejs");
 });
-router.get("/home", (req, res) =>{
+router.get("/home", checklogin, (req, res) =>{
     res.render("admin/home.ejs");
 });
 
-router.get("/dashboard", (req, res) =>{
+router.get("/dashboard", checklogin, (req, res) =>{
     res.render("admin/dashboard.ejs");
 });
 
-router.get("/destinations", (req, res) => {
+router.get("/destinations", checklogin, (req, res) => {
     res.render("admin/destinations.ejs");
 });
 
 
 
 // Travel Requests Table
-router.get("/booking", (req, res) => {
+router.get("/booking",checklogin, (req, res) => {
     var sql = "SELECT * FROM travel_requests ORDER BY travel_id DESC";
 
     exe(sql).then(requests => {
@@ -78,7 +87,7 @@ router.post("/add_travel_request", async (req, res) => {
 });
 
 // BLOG LIST PAGE
-router.get("/blog", async (req, res) => {
+router.get("/blog", checklogin,  async (req, res) => {
 
     var sql = "SELECT * FROM blogs ORDER BY blog_id DESC";
     var blogs = await exe(sql);   // blogs data
@@ -215,7 +224,7 @@ router.post("/update_blog/:id", async (req, res) => {
 
 
 // Categories Page (Admin)
-router.get("/categories", async (req, res) => {
+router.get("/categories", checklogin, async (req, res) => {
     try {
         const categories = await exe("SELECT * FROM travel_categories ORDER BY id DESC");
         res.render("admin/categories.ejs", { categories });
@@ -320,7 +329,7 @@ router.post("/update-category/:id", async (req, res) => {
 
 
 // SHOW ALL CONTACT REQUESTS
-router.get("/contact", async (req, res) => {
+router.get("/contact",checklogin, async (req, res) => {
 
     var sql = "SELECT * FROM contact_requests ORDER BY id DESC";
 
@@ -340,7 +349,7 @@ router.get("/contact/delete/:id", async (req, res) => {
     res.redirect("/admin/contact");
 });
 
-router.get("/packages", async(req, res) =>{
+router.get("/packages",checklogin, async(req, res) =>{
    
     var sql ="SELECT * FROM packages";
     var packages = await exe(sql);  
@@ -353,7 +362,7 @@ router.get("/packages", async(req, res) =>{
     res.render("admin/packages.ejs",packet);
 });
 
-router.post("/packages", async (req, res) => {
+router.post("/packages",checklogin, async (req, res) => {
     let filename = "";
     // image upload
     if (req.files && req.files.package_image) {
@@ -455,7 +464,7 @@ router.get("/gallery", async (req, res) => {
     res.render("admin/gallery.ejs", { gallery });
 });
 
-router.post("/gallery", async (req, res) => {
+router.post("/gallery",checklogin,  async (req, res) => {
     try {
         let filename = null;
 
