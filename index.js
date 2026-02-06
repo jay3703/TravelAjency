@@ -34,7 +34,7 @@ app.get("/", (req,res)=>{
     res.redirect("/user");
 });
 
-var PORT = 1000;
+var PORT = 3000;
 app.listen(PORT, ()=>{
     console.log("Server running on " + PORT);
 });
